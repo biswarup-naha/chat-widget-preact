@@ -1,18 +1,7 @@
-const Widget = ({ onClick }) => (
-    <div class="widget" onClick={onClick}>
-    </div>
-);
-
-const Dialog = ({ onClose }) => (
-    <div class="chatbox" onClick={onClose}>
-        <p>This is the chat box.</p>
-    </div>
-);
-
-
 import { h, Component } from 'preact';
 
-class WidgetWrapper extends Component {
+
+class WidgetWrapper extends Component<WidgetProps, State> {
     constructor(props) {
         super(props);
         this.state = { showDialog: false };
@@ -40,3 +29,14 @@ class WidgetWrapper extends Component {
 }
 
 export default WidgetWrapper;
+
+const Widget = ({ onClick }) => (
+    <div class="widget" onClick={onClick}>
+    </div>
+);
+
+const Dialog = ({ onClose }) => (
+    <div class="chatbox" onClick={onClose}>
+        <p>This is the chat box.</p>
+    </div>
+);
