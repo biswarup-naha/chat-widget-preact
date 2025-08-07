@@ -31,7 +31,7 @@ h1 {
 
 .chatbox{
 	position: fixed;
-	background: rgb(236, 236, 236);
+	background: rgb(220, 241, 250);
 	border-radius: 10px;
 	height: 550px;
 	width: 450px;
@@ -39,6 +39,8 @@ h1 {
 	right: 100px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 	transition: all 0.3s ease-in-out;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 
