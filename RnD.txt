@@ -1,0 +1,28 @@
+To encapsulate your widget's styles using Shadow DOM, you can render your Preact component into a shadow root instead of the default DOM. This prevents your styles in style.css from leaking out and external styles from affecting your widget.
+
+Here’s how you can implement Shadow DOM encapsulation in your project:
+
+Create a ShadowRoot host element
+In your index.ts, instead of rendering directly into the [data-widget-host="habitat"] element, create a shadow root on that element and render your app inside it.
+
+Inject styles into the ShadowRoot
+Since styles in style.css won’t apply inside the shadow root by default, inject them as a <style> tag inside the shadow root.
+
+Update your entry point
+Here’s an example of how you can modify your entry file:
+
+
+import { h, render } from 'preact';import Widget from './component';import styleText from './style.css';const host = document.querySelector('[data-widget-host="habitat"]');if (host) {  // Create shadow root  const shadow = host.attachShadow({ mode: 'open' });  // Inject styles  const style = document.createElement('style');  style.textContent = styleText;  shadow.appendChild(style);  // Render widget inside shadow root  render(<Widget />, shadow);}
+
+Update your build to import CSS as text
+You may need to configure your bundler (e.g., with a CSS loader) to allow importing CSS as a string. With microbundle, you can use import assertions or a plugin if needed.
+
+Remove or adjust preact-habitat
+preact-habitat does not support Shadow DOM out of the box. If you want Shadow DOM, render manually as above and remove habitat usage.
+
+Summary:
+
+Render your widget into a shadow root.
+Inject your CSS as a <style> tag inside the shadow root.
+Adjust your build to support importing CSS as text.
+This will fully encapsulate your widget’s styles and markup.

@@ -13,7 +13,7 @@ export default function App(props: Props): VNode {
 
     return (
         <div>
-            {showDialog && <Dialog onClose={this.closeDialog} />}
+            {showDialog && <Dialog onClose={toggleDialog} />}
             <Widget onClick={toggleDialog} />
         </div>
     );
