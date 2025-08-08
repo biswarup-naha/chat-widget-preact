@@ -27,6 +27,5 @@ const Widget = ({ onClick }) => (
 
 const Dialog = ({ onClose }) => (
     <div class="chatbox" onClick={onClose}>
-        <p>This is the chat box.</p>
     </div>
 );
