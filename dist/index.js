@@ -1,0 +1,2 @@
+var n=require("preact"),o=require("preact/hooks"),e=function(o){return n.h("div",{class:"widget",onClick:o.onClick})},t=function(o){return n.h("div",{class:"chatbox",onClick:o.onClose},n.h("p",null,"This is the chat box."))};module.exports=function(i){var r=o.useState(!1),c=r[1];function u(){c(function(n){return!n})}return n.h("div",null,r[0]&&n.h(t,{onClose:u}),n.h(e,{onClick:u}))};
+//# sourceMappingURL=index.js.map

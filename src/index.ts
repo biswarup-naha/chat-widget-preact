@@ -1,0 +1,64 @@
+// import habitat from 'preact-habitat';
+import App from './component';
+import { h, render } from 'preact';
+
+// const _habitat = habitat(Widget);
+
+// _habitat.render({
+//   selector: '[data-widget-host="habitat"]',
+//   clean: true
+// });
+
+const root = document.getElementById('root');
+root.attachShadow({ mode: 'open' });
+
+const style = document.createElement('style');
+style.textContent = `
+html, body {
+	font: 14px/1.21 'Helvetica Neue', arial, sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	text-align: center;
+}
+  
+.widget {
+	background: url(./assets/chat2.png);
+	background-size: contain;
+	border-radius: 100%;
+	height: 80px;
+	width: 80px;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	color: white;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.widget:hover{
+	background-color:rgb(14, 114, 196);
+	transform: scale(1.02);
+	color: black;
+}
+
+.chatbox{
+	position: fixed;
+	background: rgb(220, 241, 250);
+	border-radius: 10px;
+	height: 550px;
+	width: 450px;
+	bottom: 90px;
+	right: 100px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease-in-out;
+	-webkit-user-select: none;
+	user-select: none;
+}
+`;
+
+root.shadowRoot.appendChild(style);
+
+render(h(App,null), root.shadowRoot);

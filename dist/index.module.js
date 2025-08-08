@@ -1,0 +1,2 @@
+import{h as n}from"preact";import{useState as o}from"preact/hooks";function t(t){var c=o(!1),l=c[1];function e(){l(function(n){return!n})}return n("div",null,c[0]&&n(r,{onClose:e}),n(i,{onClick:e}))}var i=function(o){return n("div",{class:"widget",onClick:o.onClick})},r=function(o){return n("div",{class:"chatbox",onClick:o.onClose},n("p",null,"This is the chat box."))};export{t as default};
+//# sourceMappingURL=index.module.js.map
